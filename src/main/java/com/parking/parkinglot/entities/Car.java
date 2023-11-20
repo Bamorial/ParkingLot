@@ -9,7 +9,27 @@ import jakarta.persistence.ManyToOne;
 public class Car {
     @ManyToOne
     private User owner;
+    @Id
     private Long id;
+
+    public String licensePlate;
+    public String parkingSpot;
+
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+
+    public String getParkingSpot() {
+        return parkingSpot;
+    }
+
+    public void setParkingSpot(String parkingSpot) {
+        this.parkingSpot = parkingSpot;
+    }
 
     public User getOwner() {
         return owner;

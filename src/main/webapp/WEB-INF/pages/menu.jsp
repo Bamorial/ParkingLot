@@ -16,6 +16,9 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/Cars">Cars</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/Users">Users</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link disabled">Disabled</a>
                 </li>
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
