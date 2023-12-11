@@ -10,6 +10,7 @@ public class Car {
     @ManyToOne
     private User owner;
     @Id
+    @GeneratedValue
     private Long id;
 
     public String licensePlate;
