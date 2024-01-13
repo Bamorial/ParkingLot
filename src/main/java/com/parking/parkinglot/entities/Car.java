@@ -1,9 +1,6 @@
 package com.parking.parkinglot.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Car {
@@ -15,6 +12,7 @@ public class Car {
 
     public String licensePlate;
     public String parkingSpot;
+    public CarPhoto photo;
 
     public String getLicensePlate() {
         return licensePlate;
@@ -44,9 +42,19 @@ public class Car {
         this.id = id;
     }
 
+    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public CarPhoto getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(CarPhoto photo) {
+        this.photo = photo;
+    }
+
     @Id
     @GeneratedValue
     public Long getId() {
         return id;
     }
+
 }
