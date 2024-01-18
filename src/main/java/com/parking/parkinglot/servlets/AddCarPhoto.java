@@ -8,6 +8,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 @MultipartConfig
 @WebServlet (name = "AddCarPhoto", value = "/AddCarPhoto")
@@ -17,11 +18,12 @@ public class AddCarPhoto extends HttpServlet {
     CarsBean carsBean;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
         Long carId = Long.parseLong(request.getParameter("id"));
         CarDto car = carsBean.findById(carId);
+        System.out.println(carId);
         request.setAttribute("car", car);
-        request.getRequestDispatcher("/WEB-INF/pages/addCarPhoto.jsp");
+        request.getRequestDispatcher("/WEB-INF/pages/addCarPhoto.jsp").forward(request,response);
     }
     @Override
     protected void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

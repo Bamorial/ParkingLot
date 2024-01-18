@@ -1,6 +1,7 @@
 package com.parking.parkinglot.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.Collection;
 
@@ -24,7 +25,7 @@ public class User {
     public String getPassword() {
         return password;
     }
-
+    @NotBlank
     public void setPassword(String password) {
         this.password = password;
     }

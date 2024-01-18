@@ -9,7 +9,9 @@
     <form method="POST" action="${pageContext.request.contextPath}/Users">
     <a href="${pageContext.request.contextPath}/AddUser" class="btn btn-primary
 btn-lg">Add User</a>
-        <button type="submit" class="btn btn-primary btn-lg">Invoice</button>
+
+            <button type="submit" class="btn btn-primary btn-lg">Invoice</button>
+
     <div class="container text-center">
 
         <c:forEach var="user" items="${users}">

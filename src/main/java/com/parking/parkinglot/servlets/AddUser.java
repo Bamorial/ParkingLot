@@ -16,7 +16,7 @@ public class AddUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("userGroups", new String[] {"READ_CARS", "WRITE_CARS", "READ_USERS",
-                "WRITE_USERS"});
+                "WRITE_USERS", "INVOICING"});
         request.getRequestDispatcher("/WEB-INF/pages/addUser.jsp").forward(request, response);
     }
 

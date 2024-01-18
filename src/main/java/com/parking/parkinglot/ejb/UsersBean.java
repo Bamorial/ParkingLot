@@ -73,4 +73,35 @@ public class UsersBean {
                         .getResultList();
         return usernames;
     }
+    public UsersDto findById(Long userId) {
+        LOG.info("find user");
+        try{
+            TypedQuery<User> typedQuery=entityManager.createQuery("SELECT c FROM User c", User.class);
+            List<User> users= typedQuery.getResultList();
+            for (User c:users
+            ) {
+                if(c.getId()==userId) {
+                    UsersDto cdt= new UsersDto(c.getId(),c.getUsername(),c.getEmail());
+                    return cdt;
+                }
+                else return null;
+
+            }
+        }
+        catch (Exception ex){
+            throw new EJBException(ex);
+
+        }
+        return null;
+    }
+    public void updateUser(Long id, String username, String email, String password) {
+        LOG.info("Update User");
+        User car= entityManager.find(User.class, id);
+        car.setEmail(email);
+        car.setUsername(username);
+        car.setPassword(password);
+
+
+
+    }
 }
